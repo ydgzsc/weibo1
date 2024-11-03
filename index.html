@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>微博页面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #ff66cc, #66ccff);
+    }
+
+  .post {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+    }
+
+  .post-header {
+      font-weight: bold;
+    }
+
+  .post-content {
+      margin-top: 5px;
+    }
+
+    textarea {
+      width: 80%;
+      height: 100px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    form {
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>登录</h2>
+  <form action="">
+    <input type="text" placeholder="用户名" />
+    <input type="password" placeholder="密码" />
+    <button type="submit">登录</button>
+  </form>
+
+  <h2>注册</h2>
+  <form action="">
+    <input type="text" placeholder="用户名" />
+    <input type="password" placeholder="密码" />
+    <input type="password" placeholder="确认密码" />
+    <button type="submit">注册</button>
+  </form>
+
+  <h2>发布新微博</h2>
+  <textarea id="newPostContent"></textarea>
+  <button onclick="postNewContent()">发布</button>
+
+  <div class="post">
+    <div class="post-header">
+      用户 1
+    </div>
+    <div class="post-content">
+      今天天气真好！
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-header">
+      用户 2
+    </div>
+    <div class="post-content">
+      我刚吃了一顿美味的晚餐。
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-header">
+      用户 3
+    </div>
+    <div class="post-content">
+      准备去旅行啦！
+    </div>
+  </div>
+
+  <p style="text-align: center; padding: 10px; border-top: 1px solid #ccc; margin-top: 20px;">
+    版权 © 2024 归 cz 工作室 云顶工作室所有  备案号：粤备案 28362839
+  </p>
+
+  <script>
+    function postNewContent() {
+      var content = document.getElementById("newPostContent").value;
+      if (content) {
+        // 这里只是模拟发布，实际应用中需要与后端交互
+        var newPost = document.createElement("div");
+        newPost.className = "post";
+        newPost.innerHTML = `<div class="post-header">您</div><div class="post-content">${content}</div>`;
+        document.body.appendChild(newPost);
+        document.getElementById("newPostContent").value = "";
+      }
+    }
+  </script>
+</body>
+
+</html>
